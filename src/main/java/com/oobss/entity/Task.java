@@ -1,6 +1,7 @@
 package com.oobss.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,6 +17,7 @@ public class Task {
     @Id
     @GeneratedValue
     private Long id;
+    @NotBlank
     private String name;
     @Temporal(TemporalType.DATE)
     private Date time = new Date();

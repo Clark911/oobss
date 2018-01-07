@@ -34,12 +34,12 @@ public class TaskController {
     }
 
     @GetMapping("/main")
-    public Result taskHomeInit(){
+    public Result taskHomeInit() {
         return taskService.taskHomeInit();
     }
 
     @PostMapping
-    public Result addTask(@RequestBody Task taskDTO){
+    public Result addTask(@RequestBody Task taskDTO) {
         return taskService.addTask(taskDTO);
     }
 }
