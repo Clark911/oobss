@@ -31,4 +31,5 @@ public interface TaskRepository extends PagingAndSortingRepository<Task,Long> {
      */
     @Query("select t from Task t where t.time < :time and t.isFinished = :isFinished")
     List<Task> queryLastTask(@Param("time") Date time, @Param("isFinished") boolean isFinished);
+
 }

@@ -92,4 +92,18 @@ public class TaskService {
         result.setData(taskListMap);
         return result;
     }
+
+    /**
+     * 完成任务
+     * @param taskDTO
+     * @return
+     */
+    public Result fixTask(Task taskDTO){
+        Result result = new Result();
+        Long taskId = taskDTO.getId();
+        Task task = taskRepository.findOne(taskId);
+        task.setFinished(true);
+        result.setData(taskRepository.save(task));
+        return result;
+    }
 }

@@ -42,4 +42,9 @@ public class TaskController {
     public Result addTask(@RequestBody Task taskDTO) {
         return taskService.addTask(taskDTO);
     }
+
+    @PatchMapping
+    public Result fixTask(@RequestBody Task taskDTO){
+        return taskService.fixTask(taskDTO);
+    }
 }
