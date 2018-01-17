@@ -6,7 +6,7 @@ management:
     enabled: false
 spring:
   datasource:
-    url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_41cd1a4394379b4?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_41cd1a4394379b4?useUnicode=true&characterEncoding=UTF-8
     username: bb797197129266
     password: c05ba530
   jpa:
