@@ -5,6 +5,7 @@ import com.oobss.entity.Task;
 import com.oobss.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,7 +29,7 @@ public class TaskService {
     public Result getTodayTasks() {
         Result result = new Result();
         Date time = new Date();
-        result.setData(taskRepository.findAllByTimeAndIsFinished(time,false));
+        result.setData(taskRepository.findAllByTimeAndFinished(time,false));
         return result;
     }
 
@@ -86,8 +87,8 @@ public class TaskService {
         Result result = new Result();
         Map<String,List<Task>> taskListMap = new HashMap<>(3);
         Date time = new Date();
-        taskListMap.put("currentTasks",taskRepository.findAllByTimeAndIsFinished(time,false));
-        taskListMap.put("finishedTasks",taskRepository.findAllByTimeAndIsFinished(time,true));
+        taskListMap.put("currentTasks",taskRepository.findAllByTimeAndFinished(time,false));
+        taskListMap.put("finishedTasks",taskRepository.findAllByTimeAndFinished(time,true));
         taskListMap.put("lastTasks",taskRepository.queryLastTask(time,false));
         result.setData(taskListMap);
         return result;
@@ -98,12 +99,36 @@ public class TaskService {
      * @param taskDTO
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public Result fixTask(Task taskDTO){
         Result result = new Result();
         Long taskId = taskDTO.getId();
-        Task task = taskRepository.findOne(taskId);
-        task.setFinished(true);
-        result.setData(taskRepository.save(task));
+        result.setData(taskRepository.updateFinishById(taskId,true));
+        return result;
+    }
+
+    /**
+     * 重新打开已完成的任务
+     * @param taskDTO
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public Result openTask(Task taskDTO){
+        Result result = new Result();
+        Long taskId = taskDTO.getId();
+        result.setData(taskRepository.updateFinishById(taskId,false));
+        return result;
+    }
+
+    /**
+     * 删除任务
+     * @param id
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public Result deleteTask(Long id){
+        Result result = new Result();
+        taskRepository.delete(id);
         return result;
     }
 }

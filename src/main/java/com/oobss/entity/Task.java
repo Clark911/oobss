@@ -1,6 +1,5 @@
 package com.oobss.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -21,7 +20,7 @@ public class Task {
     private String name;
     @Temporal(TemporalType.DATE)
     private Date time = new Date();
-    private boolean isFinished;
+    private boolean finished;
 
 
     public Long getId() {
@@ -49,10 +48,10 @@ public class Task {
     }
 
     public boolean isFinished() {
-        return isFinished;
+        return finished;
     }
 
     public void setFinished(boolean finished) {
-        isFinished = finished;
+        finished = finished;
     }
 }

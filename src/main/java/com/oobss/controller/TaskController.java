@@ -47,4 +47,14 @@ public class TaskController {
     public Result fixTask(@RequestBody Task taskDTO){
         return taskService.fixTask(taskDTO);
     }
+
+    @PatchMapping("/back")
+    public Result openTask(@RequestBody Task taskDTO){
+        return taskService.openTask(taskDTO);
+    }
+
+    @DeleteMapping
+    public Result deleteTask(@RequestParam Long id){
+        return taskService.deleteTask(id);
+    }
 }
