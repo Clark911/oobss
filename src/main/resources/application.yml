@@ -13,4 +13,4 @@ spring:
     hibernate:
       ddl-auto: create
 server:
-  port: 5000
+  port: ${PORT:5000}
