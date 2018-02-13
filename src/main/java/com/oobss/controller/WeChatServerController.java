@@ -16,7 +16,7 @@ public class WeChatServerController {
         return echostr;
     }
     @PostMapping("/")
-    public String msg(@RequestBody Object xml){
+    public String msg(@RequestBody String xml){
         return "http://task.oobss.com";
     }
 }
