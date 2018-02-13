@@ -1,7 +1,12 @@
 package com.oobss.controller;
 
+import com.oobss.common.util.MessageUtil;
 import com.oobss.common.util.Result;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * @author clark
@@ -16,7 +21,13 @@ public class WeChatServerController {
         return echostr;
     }
     @PostMapping("/")
-    public String msg(@RequestBody String xml){
-        return "http://task.oobss.com";
+    public void msg(HttpServletRequest request,HttpServletResponse response){
+        System.out.println("这是 post 方法！");
+        try{
+            Map<String, String> map=MessageUtil.parseXml(request);
+            System.out.println("============================="+map.get("Content"));
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 }
