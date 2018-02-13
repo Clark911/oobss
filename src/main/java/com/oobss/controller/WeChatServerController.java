@@ -25,6 +25,9 @@ public class WeChatServerController {
         System.out.println("这是 post 方法！");
         try{
             Map<String, String> map=MessageUtil.parseXml(request);
+            map.forEach((a,b)->{
+                System.out.println(a+" : "+b);
+            });
             System.out.println("============================="+map.get("Content"));
         }catch(Exception e){
             System.out.println(e);

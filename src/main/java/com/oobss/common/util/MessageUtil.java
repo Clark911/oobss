@@ -83,7 +83,7 @@ public class MessageUtil {
     @SuppressWarnings("unchecked")
     public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {
         // 将解析结果存储在 HashMap 中
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>(16);
 
         // 从 request 中取得输入流
         InputStream inputStream = request.getInputStream();
