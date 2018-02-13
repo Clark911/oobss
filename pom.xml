@@ -36,6 +36,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.1.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-mp</artifactId>
+            <version>2.9.0</version>
+        </dependency>
     </dependencies>
 
     <properties>
