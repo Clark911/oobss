@@ -1,10 +1,7 @@
 package com.oobss.controller;
 
 import com.oobss.common.util.Result;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author clark
@@ -17,5 +14,9 @@ public class WeChatServerController {
                                  @RequestParam String nonce,
                                  @RequestParam String echostr){
         return echostr;
+    }
+    @PostMapping("/")
+    public String msg(@RequestBody Object xml){
+        return "http://task.oobss.com";
     }
 }
