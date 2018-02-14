@@ -6,9 +6,7 @@ management:
     enabled: false
 spring:
   datasource:
-    url: jdbc:postgresql://ec2-54-197-233-123.compute-1.amazonaws.com:5432/d3om4eqv2p6dn7?sslmode=require
-    username: qxjulustkiljgs
-    password: 43d93b129081adba3694fcea013786e257cbec45bca08bb3f5bf9bb19d5a1446
+    url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -18,6 +16,6 @@ server:
 wechat:
   mp:
     appId: wx8c1879e42b33b4b7
-    secret: 2660eb208f0cb0c8255e2980f44ee667
+    secret: ${WECHAT_SECRET}
     token: 123456
     aesKey: utPDs4iZ5Kr1KZWvRHLrHy69IZDh9f9WKralRH04LKZ
