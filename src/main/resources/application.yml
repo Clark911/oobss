@@ -15,7 +15,7 @@ server:
   port: ${PORT:5000}
 wechat:
   mp:
-    appId: wx8c1879e42b33b4b7
+    appId: ${WECHAT_APPID}
     secret: ${WECHAT_SECRET}
-    token: 123456
-    aesKey: utPDs4iZ5Kr1KZWvRHLrHy69IZDh9f9WKralRH04LKZ
+    token: ${WECHAT_TOKEN}
+    aesKey: ${WECHAT_AES_KEY}
