@@ -1,5 +1,6 @@
 package com.oobss.entity;
 
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Task {
     private Long id;
     @NotBlank
     private String name;
+    @UpdateTimestamp
     @Temporal(TemporalType.DATE)
     private Date time = new Date();
     private boolean finished;
