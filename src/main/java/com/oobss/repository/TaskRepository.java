@@ -17,17 +17,19 @@ import java.util.List;
  * @author clarkzhao
  * @date 2017/12/30
  */
-public interface TaskRepository extends PagingAndSortingRepository<Task,Long> {
+public interface TaskRepository extends PagingAndSortingRepository<Task, Long> {
     /**
      * 根据日期和任务状态查询任务
+     *
      * @param time
      * @param finished
      * @return
      */
-    List<Task> findAllByTimeAndFinished(Date time,boolean finished);
+    List<Task> findAllByTimeAndFinished(Date time, boolean finished);
 
     /**
      * 查询历史任务
+     *
      * @param time
      * @param finished
      * @return
@@ -37,13 +39,14 @@ public interface TaskRepository extends PagingAndSortingRepository<Task,Long> {
 
     /**
      * 根据ID修改更新任务状态
+     *
      * @param id
      * @param finished
      * @return
      */
     @Modifying
-    @Query("update Task t set t.finished = :finished where t.id = :id")
-    Integer updateFinishById(@Param("id") Long id,@Param("finished") boolean finished);
+    @Query("update Task t set t.finished = :finished,t.time = :time where t.id = :id")
+    Integer updateFinishById(@Param("id") Long id, @Param("finished") boolean finished, @Param("time") Date time);
 
-    Page<Task> queryTasksByTimeAndFinished(Pageable pageable,Date date,boolean finished);
+    Page<Task> queryTasksByTimeAndFinished(Pageable pageable, Date date, boolean finished);
 }

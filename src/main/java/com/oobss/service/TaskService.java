@@ -103,7 +103,7 @@ public class TaskService {
     public Result fixTask(Task taskDTO){
         Result result = new Result();
         Long taskId = taskDTO.getId();
-        result.setData(taskRepository.updateFinishById(taskId,true));
+        result.setData(taskRepository.updateFinishById(taskId,true,new Date()));
         return result;
     }
 
@@ -116,7 +116,7 @@ public class TaskService {
     public Result openTask(Task taskDTO){
         Result result = new Result();
         Long taskId = taskDTO.getId();
-        result.setData(taskRepository.updateFinishById(taskId,false));
+        result.setData(taskRepository.updateFinishById(taskId,false,new Date()));
         return result;
     }
 
