@@ -27,3 +27,4 @@ target
 *.prefs
 .classpath
 .factorypath
+.vscode/settings.json
