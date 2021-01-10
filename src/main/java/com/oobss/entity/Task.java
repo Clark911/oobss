@@ -54,6 +54,6 @@ public class Task {
     }
 
     public void setFinished(boolean finished) {
-        finished = finished;
+        this.finished = finished;
     }
 }

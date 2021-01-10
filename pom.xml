@@ -6,8 +6,6 @@
     <groupId>com.oobss</groupId>
     <artifactId>oobss-api</artifactId>
     <version>1.0.0</version>
-	
-	test4
 
     <parent>
         <groupId>org.springframework.boot</groupId>
